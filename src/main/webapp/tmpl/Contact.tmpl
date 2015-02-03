@@ -1,0 +1,59 @@
+<script id="tmpl-Contact" type="text/html">
+    <div>
+        <div class="modal fade" id="contact-edit-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Edit Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form">
+                            <div class="form-group">
+                                <label for="edit-contact-first-name">Group</label>
+                                <div>
+                                    {{#each groups}}
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="edit-contact-groups" name="groups[]"
+                                                   value="{{id}}" {{select ../contact.groupId id }} >
+                                            {{title}}
+                                        </label>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-contact-first-name">First Name</label>
+                                <input type="text" class="form-control" id="edit-contact-first-name"
+                                       placeholder="First Name" value="{{contact.firstName}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-contact-last-name">Last Name</label>
+                                <input type="text" class="form-control" id="edit-contact-last-name"
+                                       placeholder="Last Name"
+                                       value="{{contact.lastName}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-contact-phone">Phone</label>
+                                <input type="text" class="form-control" id="edit-contact-phone" placeholder="Phone"
+                                       value="{{contact.phone}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-contact-address">Address</label>
+                                <input type="text" class="form-control" id="edit-contact-address" placeholder="Address"
+                                       value="{{contact.address}}">
+                            </div>
+
+                            <input type="hidden" name="contact-id" value="{{contact.id}}"/>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save-contact">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+

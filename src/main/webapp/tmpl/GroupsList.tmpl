@@ -1,0 +1,16 @@
+<script id="tmpl-GroupsList" type="text/html">
+    <div>
+        <p class="text-right">
+            <button class="btn btn-default btn-sm" id="add-contact">Add a Contact</button>
+            <button class="btn btn-default btn-sm" id="add-group">Add a Group</button>
+        </p>
+        <ul class="nav nav-tabs" role="tablist" id="groups">
+            <li class="active"><a href="#contacts" role="tab" data-toggle="tab" data-entity="Contact"
+                                  data-entity-id="0">All</a></li>
+            {{#each groups}}
+                <li><a href="#" role="tab" data-toggle="tab" data-entity="Contact" data-entity-id="{{id}}">{{title}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>

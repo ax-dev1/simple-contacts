@@ -1,0 +1,52 @@
+<script id="tmpl-ContactsList" type="text/html">
+    <div class="group{{groupId}}">
+        <table class="table table-hover">
+            <colgroup>
+                <col width="15%" />
+                <col width="15%" />
+                <col width="20%" />
+                <col width="30%" />
+                <col width="10%" />
+                <col width="10%" />
+            </colgroup>
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="clist">
+            {{#each contacts}}
+                {{#filter_group ../groupId groupId}}
+                {{else}}
+                    <tr data-entity="Contact" data-entity-id="{{id}}">
+
+                        <td>{{firstName}}</td>
+                        <td>{{lastName}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{address}}</td>
+                        <td>
+
+                            <button class="btn btn-info btn-xs edit-contact"><span
+                                    class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="btn btn-danger btn-xs remove-contact"><span
+                                    class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                {{/filter_group}}
+            {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <button class="btn btn-default btn-sm group-act-btn" data-entity="Group" data-entity-id="{{groupId}}"
+                id="edit-group">Edit Group
+        </button>
+        <button class="btn btn-default btn-sm group-act-btn" data-entity="Group" data-entity-id="{{groupId}}"
+                id="remove-group">Remove Group
+        </button>
+    </div>
+</script>
