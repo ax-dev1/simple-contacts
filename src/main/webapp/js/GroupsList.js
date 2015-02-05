@@ -6,24 +6,24 @@
         postDisplay: function () {
             var view = this;
             // Listen CUD for groups
-            brite.dao.onDataChange("Groups", "create,update,delete", function (event) {
-                var daoEvent = event.daoEvent;
-                var action = {"create":"PUT","update":"POST","delete":"DELETE"}
-                
-                	var requestData = (daoEvent.action=="delete")?{"id":daoEvent.result}:daoEvent.result;
-                	var requestUrl = (daoEvent.action=="delete")?"/group/"+daoEvent.result:"/group";
-                
-	                	$.ajax({
-	                        type : action[daoEvent.action],
-	                        headers: {
-	                            'X-HTTP-Method-Override': action[daoEvent.action]
-	                        },
-	                        url : requestUrl,
-	                        dataType : "json",
-	                        data:requestData,
-	                        error:  function (data) { alert("failed");}
-	                    });
-            }, view.id);
+            //brite.dao.onDataChange("Groups", "create,update,delete", function (event) {
+            //    var daoEvent = event.daoEvent;
+            //    var action = {"create":"PUT","update":"POST","delete":"DELETE"}
+            //
+            //    	var requestData = (daoEvent.action=="delete")?{"id":daoEvent.result}:daoEvent.result;
+            //    	var requestUrl = (daoEvent.action=="delete")?"/group/"+daoEvent.result:"/group";
+            //
+	         //       	$.ajax({
+	         //               type : action[daoEvent.action],
+	         //               headers: {
+	         //                   'X-HTTP-Method-Override': action[daoEvent.action]
+	         //               },
+	         //               url : requestUrl,
+	         //               dataType : "json",
+	         //               data:requestData,
+	         //               error:  function (data) { alert("failed");}
+	         //           });
+            //}, view.id);
             refreshGroupList.call(view);
         },
         events: {

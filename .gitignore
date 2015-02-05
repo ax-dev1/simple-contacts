@@ -10,3 +10,7 @@ target/
 # IDEA
 .idea/
 *.iml
+
+# Others
+ContactDB.*
+/lib/*

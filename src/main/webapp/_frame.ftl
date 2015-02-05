@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +41,8 @@
 <script src="${_r.contextPath}/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
 <script src="${_r.contextPath}/assets/vendors/handlebars/handlebars-v2.0.0.js"></script>
 <script src="${_r.contextPath}/assets/vendors/brite/brite.min.js"></script>
-<script src="${_r.contextPath}/assets/vendors/brite/brite.InMemoryDaoHandler.js"></script>
+<script src="${_r.contextPath}/js/ContactDao.js"></script>
+<script src="${_r.contextPath}/js/GroupDao.js"></script>
 <script src="${_r.contextPath}/js/app.js"></script>
 </body>
 </html>

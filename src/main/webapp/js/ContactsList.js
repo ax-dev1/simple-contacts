@@ -10,24 +10,24 @@
         postDisplay: function () {
             var view = this;
             // Listen CUD for Contacts
-            brite.dao.onDataChange("Contacts", "create,update,delete", function (event) {
-            	var daoEvent = event.daoEvent;
-                var action = {"create":"PUT","update":"POST","delete":"DELETE"}
-                
-                	var requestData = (daoEvent.action=="delete")?{"id":daoEvent.result}:daoEvent.result;
-                	var requestUrl = (daoEvent.action=="delete")?"/contact/"+daoEvent.result:"/contact";
-                
-	                	$.ajax({
-	                        type : action[daoEvent.action],
-	                        headers: {
-	                            'X-HTTP-Method-Override': action[daoEvent.action]
-	                        },
-	                        url : requestUrl,
-	                        dataType : "json",
-	                        data:requestData,
-	                        error:  function (data) { alert("failed");}
-	                    });
-            }, view.id);
+            //brite.dao.onDataChange("Contacts", "create,update,delete", function (event) {
+            //	var daoEvent = event.daoEvent;
+            //    var action = {"create":"PUT","update":"POST","delete":"DELETE"}
+            //
+            //    	var requestData = (daoEvent.action=="delete")?{"id":daoEvent.result}:daoEvent.result;
+            //    	var requestUrl = (daoEvent.action=="delete")?"/contact/"+daoEvent.result:"/contact";
+            //
+	         //       	$.ajax({
+	         //               type : action[daoEvent.action],
+	         //               headers: {
+	         //                   'X-HTTP-Method-Override': action[daoEvent.action]
+	         //               },
+	         //               url : requestUrl,
+	         //               dataType : "json",
+	         //               data:requestData,
+	         //               error:  function (data) { alert("failed");}
+	         //           });
+            //}, view.id);
             refreshList.call(view);
         },
         events: {

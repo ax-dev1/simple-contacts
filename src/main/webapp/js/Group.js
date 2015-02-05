@@ -2,11 +2,16 @@
     brite.registerView("Group", {emptyParent: true}, {
         create: function (groupId) {
             var view = this;
-            return main.groups.get(groupId).pipe(function (group) {
-                view.group = group;
-                return app.render("tmpl-Group", {group: group});
-            });
-
+            if (groupId == '0') {
+                return app.render("tmpl-Group");
+            }
+            else
+            {
+                return main.groups.get(groupId).pipe(function (group) {
+                    view.group = group;
+                    return app.render("tmpl-Group", {group: group});
+                });
+            }
         },
         postDisplay: function () {
             //Show contact edit modal

@@ -22,6 +22,7 @@ var app = (function () {
     Handlebars.registerHelper('select', function (contactId, groupId) {
         if (!contactId) return;
         var select = contactId.split(',');
+        groupId +="";
         if ($.inArray(groupId, select) >= 0) {
             return new Handlebars.SafeString(' checked="checked" ');
         }
@@ -46,11 +47,14 @@ var app = (function () {
 var main = main || {};
 (function () {
     // Init
-    $.getJSON("/getContacts", function (contacts) {
-        main.contacts = brite.registerDao(new brite.InMemoryDaoHandler("Contacts", contacts));
-    });
-    $.getJSON("/getGroups", function (groups) {
-        main.groups = brite.registerDao(new brite.InMemoryDaoHandler("Groups", groups));
-    });
+    //$.getJSON("/contact/list", function (contacts) {
+    //    main.contacts = brite.registerDao(new brite.InMemoryDaoHandler("Contacts", contacts));
+    //});
+    //$.getJSON("/group/list", function (groups) {
+    //    main.groups = brite.registerDao(new brite.InMemoryDaoHandler("Groups", groups));
+    //});
+
+    main.contacts = brite.registerDao(new brite.ContactDao("Contacts"));
+    main.groups = brite.registerDao(new brite.GroupDao("Groups"));
 
 })();

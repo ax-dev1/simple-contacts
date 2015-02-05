@@ -1,15 +1,21 @@
 package com.demo.entity;
 
-public class BaseEntity {
-	private String id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-	public String getId() {
+@MappedSuperclass
+public class BaseEntity {
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int id;
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 }
